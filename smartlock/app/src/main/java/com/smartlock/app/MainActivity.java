@@ -72,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
         checkPermissions();
     }
 
+    /**
+     * 切换到指定 tab（供子Fragment调用）
+     */
+    public void switchToTab(int index) {
+        int[] ids = {R.id.nav_home, R.id.nav_records, R.id.nav_cards, R.id.nav_settings};
+        if (index >= 0 && index < ids.length) {
+            bottomNav.setSelectedItemId(ids[index]);
+        }
+    }
+
     private void switchFragment(Fragment target) {
         if (target == currentFrag) return;
         androidx.fragment.app.FragmentTransaction tx = getSupportFragmentManager().beginTransaction();

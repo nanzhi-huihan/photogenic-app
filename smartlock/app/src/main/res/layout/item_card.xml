@@ -14,13 +14,34 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_card_name"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="卡片 #1"
-            android:textSize="14sp"
-            android:textColor="#FFFFFF"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡片 #1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/tv_card_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="管理员"
+                android:textSize="10sp"
+                android:textColor="#4CAF50"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_card_uid"
@@ -34,8 +55,18 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_card_level"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bg_btn_orange"
+        android:text="⚙"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"/>
+
+    <Button
         android:id="@+id/btn_del_card"
-        android:layout_width="40dp"
+        android:layout_width="36dp"
         android:layout_height="36dp"
         android:background="@drawable/bg_btn_red"
         android:text="✕"

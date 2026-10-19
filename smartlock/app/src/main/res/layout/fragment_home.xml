@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:paddingBottom="80dp">
 
-        <!-- 状态栏 -->
+        <!-- 顶部状态栏 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,12 +50,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🚪 智能门禁管理"
+            android:text="智能门禁系统"
             android:textSize="22sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:paddingTop="20dp"/>
+            android:paddingTop="16dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -64,83 +64,95 @@
             android:textSize="13sp"
             android:textColor="#99FFFFFF"
             android:gravity="center"
-            android:paddingBottom="10dp"/>
+            android:paddingBottom="8dp"/>
 
-        <!-- 开锁大按钮 -->
+        <!-- 门状态卡片 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="24dp">
-
-            <Button
-                android:id="@+id/btn_unlock"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:background="@drawable/bg_unlock_btn"
-                android:text="🔒 点击解锁"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:enabled="false"/>
-
-            <Button
-                android:id="@+id/btn_connect"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bg_connect_btn"
-                android:text="🔗 连接蓝牙"
-                android:textSize="15sp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-
-        <!-- 密码面板 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:background="@drawable/bg_panel"
             android:layout_margin="16dp"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:gravity="center_vertical">
 
-            <TextView
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="门状态"
+                    android:textSize="12sp"
+                    android:textColor="#99FFFFFF"/>
+
+                <TextView
+                    android:id="@+id/tv_door_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⛔ 已关闭"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🔑 密码解锁"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"/>
+                android:orientation="vertical"
+                android:gravity="end">
 
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_input"
-                android:hint="输入6位密码"
-                android:textColorHint="#66FFFFFF"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:letterSpacing="0.3"
-                android:inputType="numberPassword"
-                android:maxLength="6"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌡 温度/湿度"
+                    android:textSize="11sp"
+                    android:textColor="#99FFFFFF"/>
 
-            <Button
-                android:id="@+id/btn_send_pwd"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/bg_btn_green"
-                android:text="确认解锁"
-                android:textSize="15sp"
-                android:textColor="#FFFFFF"
-                android:enabled="false"/>
+                <TextView
+                    android:id="@+id/tv_temp_humi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--°C / --%"
+                    android:textSize="16sp"
+                    android:textColor="#4FC3F7"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- 最近记录面板 -->
+        <!-- 连接/断开按钮 -->
+        <Button
+            android:id="@+id/btn_connect"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_connect_btn"
+            android:text="🔗 连接蓝牙"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"/>
+
+        <!-- 远程开锁按钮 -->
+        <Button
+            android:id="@+id/btn_unlock"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_unlock_btn"
+            android:text="🔒 远程开锁"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:enabled="false"/>
+
+        <!-- 五种解锁方式面板 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,24 +160,175 @@
             android:background="@drawable/bg_panel"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:padding="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="📋 最近开锁记录"
+                android:text="🔐 解锁方式"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp"/>
 
+            <!-- 解锁方式网格 2列 -->
             <LinearLayout
-                android:id="@+id/recent_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="12dp"/>
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_method_pwd"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_btn_green"
+                    android:text="🔑\n密码"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/btn_method_card"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="💳\n刷卡"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btn_method_finger"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_btn_green"
+                    android:text="👆\n指纹"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/btn_method_face"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="😊\n人脸"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btn_method_bt"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_btn_green"
+                    android:text="📱\n蓝牙APP"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/btn_method_button"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="🚪\n出门按钮"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"
+                    android:enabled="false"/>
+            </LinearLayout>
         </LinearLayout>
+
+        <!-- 快捷面板 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_refresh_status"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/bg_btn_green"
+                android:text="🔄 刷新状态"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
+
+            <Button
+                android:id="@+id/btn_refresh_temp"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/bg_btn_orange"
+                android:text="🌡 温湿度"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
+
+            <Button
+                android:id="@+id/btn_query_records"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_btn_green"
+                android:text="📋 查记录"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
+        </LinearLayout>
+
+        <!-- 事件提示 -->
+        <TextView
+            android:id="@+id/tv_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="13sp"
+            android:textColor="#FFD54F"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="8dp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 </ScrollView>

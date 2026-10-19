@@ -13,15 +13,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="⚙️ 设置"
-            android:textSize="22sp"
+            android:text="⚙️ 系统设置"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:paddingTop="20dp"
+            android:paddingTop="16dp"
             android:paddingBottom="10dp"/>
 
-        <!-- 人群模式 -->
+        <!-- 时间校准 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,50 +33,101 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="👥 人群模式"
+                android:text="🕐 RTC 时间校准"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="将手机时间同步到门锁RTC时钟"
+                android:textSize="12sp"
+                android:textColor="#99FFFFFF"/>
+
+            <TextView
+                android:id="@+id/tv_current_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="--"
+                android:textSize="14sp"
+                android:textColor="#4FC3F7"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_sync_time"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_green"
+                android:text="📲 同步手机时间到门锁"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- 自动关门 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⏱ 自动关门"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="开门后延时自动关锁（0=禁用）"
+                android:textSize="12sp"
+                android:textColor="#99FFFFFF"/>
+
             <LinearLayout
-                android:id="@+id/mode_selector"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
 
                 <Button
-                    android:id="@+id/btn_mode_0"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bg_mode_selected"
-                    android:text="通用"
-                    android:textSize="14sp"
+                    android:id="@+id/btn_delay_down"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="-"
+                    android:textSize="18sp"
                     android:textColor="#FFFFFF"/>
 
-                <Button
-                    android:id="@+id/btn_mode_1"
+                <TextView
+                    android:id="@+id/tv_auto_lock_delay"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bg_mode_normal"
-                    android:text="老年人"
-                    android:textSize="14sp"
-                    android:textColor="#FFFFFF"/>
+                    android:text="5 秒"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"/>
 
                 <Button
-                    android:id="@+id/btn_mode_2"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:background="@drawable/bg_mode_normal"
-                    android:text="儿童"
-                    android:textSize="14sp"
+                    android:id="@+id/btn_delay_up"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="+"
+                    android:textSize="18sp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
         </LinearLayout>
@@ -95,7 +146,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🔔 报警设置"
+                android:text="🔔 报警与通知"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"/>
@@ -105,13 +156,35 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="陌生人检测通知"
+                    android:text="蜂鸣器开关"
+                    android:textSize="14sp"
+                    android:textColor="#DDFFFFFF"/>
+
+                <CheckBox
+                    android:id="@+id/cb_buzzer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="陌生人检测"
                     android:textSize="14sp"
                     android:textColor="#DDFFFFFF"/>
 
@@ -127,13 +200,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="门未关报警"
+                    android:text="门未关超时报警"
                     android:textSize="14sp"
                     android:textColor="#DDFFFFFF"/>
 
@@ -149,22 +222,98 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="到家通知"
+                    android:text="撬门报警"
                     android:textSize="14sp"
                     android:textColor="#DDFFFFFF"/>
 
                 <CheckBox
-                    android:id="@+id/cb_home"
+                    android:id="@+id/cb_tamper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"/>
             </LinearLayout>
+        </LinearLayout>
+
+        <!-- 密码修改 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔑 系统密码"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="修改键盘开锁密码（6位数字）"
+                android:textSize="12sp"
+                android:textColor="#99FFFFFF"/>
+
+            <Button
+                android:id="@+id/btn_set_password"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_green"
+                android:text="🔒 修改密码"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- 恢复出厂 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚠️ 恢复出厂"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FF5722"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="清除所有卡片、指纹、人脸和记录"
+                android:textSize="12sp"
+                android:textColor="#99FFFFFF"/>
+
+            <Button
+                android:id="@+id/btn_factory_reset"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_btn_red"
+                android:text="⚠️ 恢复出厂设置"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
         <!-- 系统信息 -->
@@ -189,7 +338,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -211,7 +360,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_width="100dp"
@@ -233,49 +382,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="6dp">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="开锁方式"
-                    android:textSize="13sp"
-                    android:textColor="#99FFFFFF"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="密码 / 刷卡 / 指纹 / 蓝牙 / 人脸"
-                    android:textSize="13sp"
-                    android:textColor="#DDFFFFFF"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="6dp">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="固件版本"
-                    android:textSize="13sp"
-                    android:textColor="#99FFFFFF"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="v2.0.0"
-                    android:textSize="13sp"
-                    android:textColor="#DDFFFFFF"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="4dp">
 
                 <TextView
                     android:layout_width="100dp"

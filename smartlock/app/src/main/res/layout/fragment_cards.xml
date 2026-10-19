@@ -13,43 +13,86 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="💳 卡片管理"
-            android:textSize="22sp"
+            android:text="🔐 身份管理"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:paddingTop="20dp"
-            android:paddingBottom="10dp"/>
+            android:paddingTop="16dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="卡片 / 指纹 / 人脸"
+            android:textSize="12sp"
+            android:textColor="#99FFFFFF"
+            android:gravity="center"
+            android:paddingBottom="12dp"/>
+
+        <!-- Tab 切换 -->
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_tab_card"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mode_selected"
+                android:text="💳 卡片"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btn_tab_finger"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_mode_normal"
+                android:text="👆 指纹"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/btn_tab_face"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/bg_mode_normal"
+                android:text="😊 人脸"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- 卡片面板 -->
+        <LinearLayout
+            android:id="@+id/panel_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/bg_panel"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:padding="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="卡片管理"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_add_card"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="44dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="4dp"
                     android:background="@drawable/bg_btn_green"
                     android:text="➕ 添加卡片"
                     android:textSize="13sp"
@@ -58,10 +101,23 @@
                 <Button
                     android:id="@+id/btn_refresh_cards"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="44dp"
                     android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
                     android:background="@drawable/bg_btn_orange"
                     android:text="🔄 刷新"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Button
+                    android:id="@+id/btn_clear_cards"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_btn_red"
+                    android:text="🗑 清空"
                     android:textSize="13sp"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
@@ -70,7 +126,130 @@
                 android:id="@+id/cards_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- 指纹面板 -->
+        <LinearLayout
+            android:id="@+id/panel_finger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_enroll_finger"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_btn_green"
+                    android:text="➕ 录入指纹"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Button
+                    android:id="@+id/btn_refresh_fingers"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="🔄 刷新"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Button
+                    android:id="@+id/btn_clear_fingers"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_btn_red"
+                    android:text="🗑 清空"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fingers_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+        <!-- 人脸面板 -->
+        <LinearLayout
+            android:id="@+id/panel_face"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_enroll_face"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_btn_green"
+                    android:text="➕ 录入人脸"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Button
+                    android:id="@+id/btn_refresh_faces"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="🔄 刷新"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+
+                <Button
+                    android:id="@+id/btn_clear_faces"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_btn_red"
+                    android:text="🗑 清空"
+                    android:textSize="13sp"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/faces_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
         </LinearLayout>
 
     </LinearLayout>
