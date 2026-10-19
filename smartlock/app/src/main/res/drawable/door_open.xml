@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+    <!-- 门框 -->
+    <path
+        android:pathData="M15,5 L15,75 L65,75 L65,5 Z"
+        android:fillColor="#4CAF50"
+        android:strokeWidth="3"
+        android:strokeColor="#2E7D32"/>
+    <!-- 门打开状态 - 门扇向右打开 -->
+    <path
+        android:pathData="M18,8 L55,8 L55,72 L18,72 Z"
+        android:fillColor="#C8E6C9"
+        android:strokeWidth="2"
+        android:strokeColor="#4CAF50"/>
+    <!-- 门把手 -->
+    <path
+        android:pathData="M50,40 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0"
+        android:fillColor="#FF9800"/>
+    <!-- 开启指示 -->
+    <path
+        android:pathData="M10,35 L5,40 L10,45"
+        android:strokeWidth="3"
+        android:strokeColor="#4CAF50"
+        android:fillColor="#4CAF50"/>
+</vector>

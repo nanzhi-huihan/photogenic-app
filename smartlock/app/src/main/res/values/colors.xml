@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1A237E</color>
+    <color name="primary_dark">#0D1642</color>
+    <color name="accent">#4CAF50</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_gray">#888888</color>
+    <color name="bg_gradient_start">#1A237E</color>
+    <color name="bg_gradient_mid">#283593</color>
+    <color name="bg_gradient_end">#3949AB</color>
+</resources>

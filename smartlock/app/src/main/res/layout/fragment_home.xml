@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- 状态栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#33000000"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="●"
+                android:textSize="14sp"
+                android:textColor="#F44336"
+                android:layout_marginEnd="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="未连接"
+                android:textSize="14sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/tv_device_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textSize="13sp"
+                android:textColor="#CCFFFFFF"/>
+        </LinearLayout>
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚪 智能门禁管理"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:paddingTop="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Smart Door Lock v2.0"
+            android:textSize="13sp"
+            android:textColor="#99FFFFFF"
+            android:gravity="center"
+            android:paddingBottom="10dp"/>
+
+        <!-- 开锁大按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
+
+            <Button
+                android:id="@+id/btn_unlock"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:background="@drawable/bg_unlock_btn"
+                android:text="🔒 点击解锁"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_connect_btn"
+                android:text="🔗 连接蓝牙"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- 密码面板 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_margin="16dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔑 密码解锁"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_input"
+                android:hint="输入6位密码"
+                android:textColorHint="#66FFFFFF"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:letterSpacing="0.3"
+                android:inputType="numberPassword"
+                android:maxLength="6"/>
+
+            <Button
+                android:id="@+id/btn_send_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_btn_green"
+                android:text="确认解锁"
+                android:textSize="15sp"
+                android:textColor="#FFFFFF"
+                android:enabled="false"/>
+        </LinearLayout>
+
+        <!-- 最近记录面板 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_panel"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📋 最近开锁记录"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"/>
+
+            <LinearLayout
+                android:id="@+id/recent_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
