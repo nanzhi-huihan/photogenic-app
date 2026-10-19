@@ -249,9 +249,9 @@ class _CameraScreenState extends State<CameraScreen> {
                                   : const Icon(Icons.auto_awesome, color: Colors.white),
                             ),
                             const SizedBox(height: 6),
-                            const Text(
+                            Text(
                               _generateText(),
-                              style: TextStyle(color: Colors.white, fontSize: 12),
+                              style: const TextStyle(color: Colors.white, fontSize: 12),
                             ),
                           ],
                         ),

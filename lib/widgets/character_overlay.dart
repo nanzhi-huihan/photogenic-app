@@ -56,8 +56,8 @@ class _CharacterOverlayState extends State<CharacterOverlay> {
         final charWidth = screenW * _scale;
         final charHeight = charWidth * 1.4; // 人物宽高比 1:1.4
 
-        final left = _position.x * screenW - charWidth / 2;
-        final top = _position.y * screenH - charHeight / 2;
+        final left = _position.dx * screenW - charWidth / 2;
+        final top = _position.dy * screenH - charHeight / 2;
 
         return Positioned(
           left: left.clamp(-charWidth * 0.3, screenW - charWidth * 0.7),
@@ -79,8 +79,8 @@ class _CharacterOverlayState extends State<CharacterOverlay> {
                 // 拖拽
                 if (_lastFocalPoint != null) {
                   final delta = details.focalPoint - _lastFocalPoint!;
-                  final newX = _position.x + delta.dx / screenW;
-                  final newY = _position.y + delta.dy / screenH;
+                  final newX = _position.dx + delta.dx / screenW;
+                  final newY = _position.dy + delta.dy / screenH;
                   _position = Offset(
                     newX.clamp(0.1, 0.9),
                     newY.clamp(0.2, 0.95),

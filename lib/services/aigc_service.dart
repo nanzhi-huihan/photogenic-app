@@ -53,7 +53,7 @@ class AigcService {
     onProgress?.call(0.9);
 
     // 解码返回的图片
-    final imageBytes = _decodeResponse(response);
+    final imageBytes = await _decodeResponse(response);
 
     onProgress?.call(1.0);
     return imageBytes;
@@ -247,7 +247,7 @@ low quality, worst quality, out of frame, oversaturated
   }
 
   /// 解码 API 响应
-  Uint8List _decodeResponse(dynamic response) {
+  Future<Uint8List> _decodeResponse(dynamic response) async {
     if (response is Uint8List) {
       return response;
     } else if (response is Map) {
@@ -263,7 +263,7 @@ low quality, worst quality, out of frame, oversaturated
         final output = response['output'];
         if (output is List && output.isNotEmpty) {
           // 下载输出图片
-          return _downloadImage(output[0]);
+          return await _downloadImage(output[0]);
         }
       }
     }

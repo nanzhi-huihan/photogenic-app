@@ -61,8 +61,8 @@ class _PreviewScreenState extends State<PreviewScreen> {
     final charWidth = canvasW * widget.characterScale;
     final charHeight = charWidth * (charImg.height / charImg.width);
 
-    final left = widget.characterPosition.x * canvasW - charWidth / 2;
-    final top = widget.characterPosition.y * canvasH - charHeight / 2;
+    final left = widget.characterPosition.dx * canvasW - charWidth / 2;
+    final top = widget.characterPosition.dy * canvasH - charHeight / 2;
 
     // 3. 绘制人物
     canvas.drawImageRect(
@@ -257,8 +257,8 @@ class _PreviewScreenState extends State<PreviewScreen> {
         final h = constraints.maxHeight;
         final charWidth = w * widget.characterScale;
         final charHeight = charWidth * 1.4;
-        final left = widget.characterPosition.x * w - charWidth / 2;
-        final top = widget.characterPosition.y * h - charHeight / 2;
+        final left = widget.characterPosition.dx * w - charWidth / 2;
+        final top = widget.characterPosition.dy * h - charHeight / 2;
 
         return Positioned(
           left: left,
